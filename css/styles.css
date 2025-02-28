@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(18, 40px); /* 18칸 */
+    grid-template-rows: repeat(9, 40px); /* 9줄 */
+    gap: 2px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    background-color: #ffeb99;
+    cursor: pointer;
+    user-select: none;
+}
+
+.selection-box {
+    position: absolute;
+    background-color: rgba(0, 0, 255, 0.2); /* 반투명 파란색 */
+    border: 2px dashed blue; /* 점선 테두리 */
+    pointer-events: none; /* 클릭 방지 */
+}
+
+.highlight {
+    background-color: yellow; /* 하이라이트된 칸 배경색 */
+    border: 2px solid red; /* 하이라이트된 칸 테두리 */
+}
+
+.erased {
+    visibility: hidden;
+}
