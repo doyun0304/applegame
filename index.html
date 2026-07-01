@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사과게임</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>🍎 사과게임</h1>
+        <div id="topbar">
+            <div class="stat-badge gold-badge">
+                <span class="stat-label">GOLD</span>
+                <span id="lblGold" class="stat-value">0</span>
+            </div>
+            <div class="stat-badge">
+                <span class="stat-label">SCORE</span>
+                <span id="lblScore" class="stat-value">0</span>
+            </div>
+            <div class="stat-badge">
+                <span class="stat-label">TIME</span>
+                <span id="lblTime" class="stat-value">120</span>
+            </div>
+        </div>
+        <div id="toolbar">
+            <button id="btnReset">🔄 Reset</button>
+            <button id="btnHint">💡 힌트 <span id="lblHintCount">3</span></button>
+            <button id="btnShop">🏪 상점</button>
+        </div>
+        <div id="game-board"></div>
+    </div>
+
+    <div id="shop-overlay">
+        <div id="shop-modal">
+            <div id="shop-header">
+                <h2>🏪 상점</h2>
+                <button id="btnCloseShop">✕</button>
+            </div>
+            <div id="shop-gold">보유 골드: <span id="lblShopGold">0</span> 🪙</div>
+            <div id="shop-items"></div>
+        </div>
+    </div>
+
+    <div id="gameover-overlay">
+        <div id="gameover-modal">
+            <h2>⏰ 게임 종료</h2>
+            <p class="gameover-row">최종 점수 <span id="lblFinalScore">0</span></p>
+            <p class="gameover-row">획득 골드 <span id="lblFinalGold">0</span> 🪙</p>
+            <button id="btnPlayAgain">🔄 다시 하기</button>
+        </div>
+    </div>
+
+    <div id="debug-panel">
+        <div id="debug-header">
+            <h2>🛠 디버그 모드</h2>
+            <button id="btnCloseDebug">✕</button>
+        </div>
+        <div class="debug-section">
+            <label class="debug-label">골드</label>
+            <div class="debug-row">
+                <input type="number" id="inputDebugGold">
+                <button id="btnSetGold">적용</button>
+            </div>
+        </div>
+        <div class="debug-section">
+            <label class="debug-label">스킬 레벨 (다음 판부터 시간/조커 적용)</label>
+            <div id="debug-upgrades"></div>
+        </div>
+        <div class="debug-section">
+            <label class="debug-checkbox">
+                <input type="checkbox" id="chkInfiniteTime">
+                ⏳ 무한 시간
+            </label>
+            <label class="debug-checkbox">
+                <input type="checkbox" id="chkInfiniteHint">
+                💡 무한 힌트
+            </label>
+        </div>
+        <button id="btnDebugReroll">🔄 지금 판 다시 만들기</button>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
