@@ -432,7 +432,24 @@ function eraseHighlights(){
     });
     breakHintGroupsContaining(highlightedCells);
     lblScore.innerText = score;
-    if(score==rows*cols) gameClear();
+
+    if (score == rows*cols) {
+        gameClear();
+    } else if (!hasRemainingJoker() && !findHintRect(new Set())) {
+        console.log("남은 조커 없음, 지울 수 있는 조합 없음 - 조기 종료");
+        endGame("no-moves");
+    }
+}
+
+// 지워지지 않은 조커(값이 0인 칸)가 남아있는지 확인
+function hasRemainingJoker() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            const cell = grid[r][c];
+            if (!cell.classList.contains("erased") && cell.dataset.value == 0) return true;
+        }
+    }
+    return false;
 }
 
 function checkSum() {
